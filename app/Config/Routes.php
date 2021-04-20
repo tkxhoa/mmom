@@ -39,6 +39,7 @@ $routes->get('/logout', 'Login::logout');
 $routes->get('/etsy_orders', 'EtsyOrder::index');
 $routes->get('/export_csv_etsy_orders', 'EtsyOrder::exportCSVFulfill');
 $routes->get('/paypaltransaction', 'PaypalTransaction::index');
+$routes->get('/product', 'Product::index');
 
 
 /*

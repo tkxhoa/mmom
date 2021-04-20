@@ -21,7 +21,7 @@
         <select id="list_periods">
             <option value="this_week" <?=$period == 'this_week' ? 'selected' : ''?>>This Week</option>
             <option value="last_week" <?=$period == 'last_week' ? 'selected' : ''?>>Last Week</option>
-            <option value="this_month" selected>This Month</option>
+            <option value="this_month" <?=$period == 'this_month' || $period == '' ? 'selected' : ''?>>This Month</option>
             <option value="last_month" <?=$period == 'last_month' ? 'selected' : ''?>>Last Month</option>
             <option value="30_days" <?=$period == '30_days' ? 'selected' : ''?>>Last 30 Days</option>
             <option value="this_year" <?=$period == 'this_year' ? 'selected' : ''?>>This Year</option>

@@ -19,8 +19,14 @@ class MyFunc
     }
 
     //Make a random string
-    function generateRandomString($length = 10) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    function generateRandomString($length = 10, $upercaseOnly=false) {
+        $characters = '';
+        if ($upercaseOnly) {
+            $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        } else {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        }
+        
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {

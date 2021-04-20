@@ -59,6 +59,7 @@
 
                         <h6 class="collapse-header">Etsy Stores:</h6>
                         <a class="collapse-item" href="/etsy">Etsy Shops</a>
+                        <a class="collapse-item" href="/product">Products</a>
                     </div>
                 </div>
             </li>
