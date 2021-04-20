@@ -1,0 +1,48 @@
+.tbl-text-font-size {
+    font-size: 11px;
+}
+
+.btn-font-size {
+    font-size: 11px;
+}
+
+.bg-verifying {
+    background-color: #92908c5e!important;
+}
+
+.text-underline {
+text-decoration: underline !important;
+}
+
+.btn-circle.btn-very-sm {
+    height: 1.8rem;
+    width: 0.6rem;
+}
+
+.wrapper1, .wrapper2 {
+    width: 1000px; 
+    border: none 0px RED;
+    overflow-x: scroll; 
+    overflow-y:scroll;
+}
+.wrapper1 {
+    height: 20px; 
+}
+.wrapper2 {
+    height: 450px; }
+.div1 {
+    width:2000px; 
+    height: 20px; }
+.div2 {
+    width:2000px; 
+    height: 450px; 
+    overflow: auto;
+}
+
+.money-text-align {
+    text-align: right;
+}
+
+.text-xxs {
+  font-size: .6rem !important;
+}
