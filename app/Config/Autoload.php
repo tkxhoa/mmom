@@ -62,5 +62,7 @@ class Autoload extends AutoloadConfig
 	 *
 	 * @var array<string, string>
 	 */
-	public $classmap = [];
+	public $classmap = [
+		'MyFunc' => APPPATH . 'Libraries/MyFunc.php' // Loading library class file
+	];
 }

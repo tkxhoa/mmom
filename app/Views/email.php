@@ -14,9 +14,9 @@
                         <th>EMAIL</th>
                         <th>MAIN PAYPAL MAIL</th>
                         <th>TYPE</th>
-                        <th>PAYPAL REGISTERED</th>
-                        <th>PAYPAL USED</th>
-                        <th>ETSY REGISTERED</th>
+                        <th>ETSY<br/> REGISTERED</th>
+                        <th>ETSY<br/> USED</th>
+                        <th>PAYPAL<br/> REGISTERED</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -25,21 +25,21 @@
                         <th>EMAIL</th>
                         <th>MAIN PAYPAL MAIL</th>
                         <th>TYPE</th>
-                        <th>PAYPAL REGISTERED</th>
-                        <th>PAYPAL USED</th>
-                        <th>ETSY REGISTERED</th>
+                        <th>ETSY<br/> REGISTERED</th>
+                        <th>ETSY<br/> USED</th>
+                        <th>PAYPAL<br/> REGISTERED</th>
                     </tr>
                 </tfoot>
-                <tbody>
+                <tbody class="tbl-text-font-size">
                     <?php foreach ($results as $row): ?>
                         <tr>
                             <td><?=$row->id?></td>
                             <td><?=$row->email?></td>
                             <td><?=$row->main_paypal_email?></td>
-                            <td ><button type="button" class="btn btn-primary disabled"><?=$row->type?></button></td>
-                            <td>x</td>
-                            <td>x</td>
-                            <td>x</td>
+                            <td ><button type="button" style="font-size:11px;" class="btn btn-primary"><?=$row->type?></button></td>
+                            <td><?=$row->registered_flg_etsy ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : ''?></td>
+                            <td><?=$row->used_flg_etsy ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : ''?></td>
+                            <td><?=$row->registered_flg_paypal ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : ''?></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

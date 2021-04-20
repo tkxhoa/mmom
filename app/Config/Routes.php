@@ -32,9 +32,14 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index', ['filter' => 'auth']);
+$routes->get('/', 'EtsySummary::index', ['filter' => 'auth']);
 $routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
+
+$routes->get('/etsy_orders', 'EtsyOrder::index');
+$routes->get('/export_csv_etsy_orders', 'EtsyOrder::exportCSVFulfill');
+$routes->get('/paypaltransaction', 'PaypalTransaction::index');
+
 
 /*
  * --------------------------------------------------------------------
