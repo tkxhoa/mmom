@@ -110,4 +110,63 @@ $(document).ready(function() {
         label.show();
         
     });
+
+    $('.text-editting>input[type=text]').on("keyup", function (event) {
+        if (event.keyCode == 13) {//Enter press
+            $(this).focusout();
+        }
+    });
+
+
+    ///
+    $('.flag-editting').click(function () {
+        var dad = $(this);
+        dad.find('label').hide();
+        dad.find('input[type="text"]').show().focus();
+        editing_value = dad.find('input[type="text"]').val();
+    });
+    
+    $('.flag-editting>input[type=text]').focusout(function() {
+        var dad = $(this).parent();
+        $(this).hide();
+
+        var label = dad.find('label');
+        var label_for = label.attr("for");
+        var label_for_parts = label_for.split("-");
+        var etsy_order_id = label_for_parts[0];
+        var update_field = label_for_parts[1];
+
+        if (editing_value != $(this).val()) {//edited
+            var update_value = $(this).val();
+            if (update_value == 1) {
+                $(label).html('<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>');
+            } else {
+                $(label).html('');
+                update_value = 0;
+            }
+
+            $.ajax({
+				url: "/etsyorder/update",
+				type: "POST",
+				data: {
+					id: etsy_order_id,
+                    field: update_field,
+					value: update_value
+				},
+				cache: false,
+				success: function(dataResult){
+					var dataResult = JSON.parse(dataResult);
+					if(dataResult.statusCode==200){
+						$('#success').html('Data added successfully !'); 						
+					}
+					else if(dataResult.statusCode==201){
+					   alert("Error occured !");
+					}
+					
+				}
+			});
+        }
+        label.show();
+        
+    });
 });

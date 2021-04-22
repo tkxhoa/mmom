@@ -5,7 +5,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">MMO Manager <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">MMO Manager</div>
             </a>
 
             <!-- Divider -->
@@ -16,6 +16,24 @@
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Paypal Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePaypal"
+                    aria-expanded="true" aria-controls="collapsePaypal">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Product Manager</span>
+                </a>
+                <div id="collapsePaypal" class="collapse <?=isset($showMenu) && $showMenu == 'product' ? 'show' : ''?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="product">Product List</a>
+                        <a class="collapse-item" href="productsummary">Product Summary</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -35,7 +53,6 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Best stores</h6>
                         <a class="collapse-item" href="http://etsy.com/shop/dachtx" target="_blank">Dachtx</a>
                         <a class="collapse-item" href="http://etsy.com/shop/hanateenshop" target="_blank">HanaTeenShop</a>
                     </div>
@@ -59,7 +76,6 @@
 
                         <h6 class="collapse-header">Etsy Stores:</h6>
                         <a class="collapse-item" href="/etsy">Etsy Shops</a>
-                        <a class="collapse-item" href="/product">Products</a>
                     </div>
                 </div>
             </li>
@@ -81,7 +97,6 @@
                 </a>
                 <div id="collapsePaypal" class="collapse <?=isset($showMenu) && $showMenu == 'paypal' ? 'show' : ''?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Paypal Orders:</h6>
                         <a class="collapse-item" href="paypal">Paypal Accounts</a>
                         <a class="collapse-item" href="paypaltransaction">Paypal Transaction</a>
                     </div>

@@ -20,7 +20,7 @@ text-decoration: underline !important;
 }
 
 .wrapper1, .wrapper2 {
-    width: 1000px; 
+    width: 100%; 
     border: none 0px RED;
     overflow-x: scroll; 
     overflow-y:scroll;
@@ -45,4 +45,18 @@ text-decoration: underline !important;
 
 .text-xxs {
   font-size: .6rem !important;
+}
+
+/* table.my-table td {
+    padding-top: 10px;
+} */
+
+table.my-table td > input, table.my-table td > select  {
+    margin-top: 10px;
+}
+
+.btn-etsy {
+    color: #fff !important;
+    background-color: #e97e40  !important;
+    border-color: #e97e40 !important;
 }

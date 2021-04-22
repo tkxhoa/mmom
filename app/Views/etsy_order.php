@@ -106,43 +106,35 @@
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
+            <?php $tblHeader = '<tr>
+                        <th>SHOP<br/>NAME</th>
+                        <th>ORDER ID</th>
+                        <th>SALE<br/>DATE</th>
+                        <th>ITEM NAME</th>
+                        <th>QTY</th>
+                        <th>PRICE</th>
+                        <th>ITEM TOTAL</th>
+                        <th>TRANSACTION</th>
+                        <th>SHIP NAME</th>
+                        <th>ADDRESS</th>
+                        <th>FF</th>
+                        <th>TR</th>
+                        <th>SH</th>
+                    </tr>';?>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                    <tr>
-                        <th>SHOP<br/>NAME</th>
-                        <th>ORDER ID</th>
-                        <th>SALE<br/>DATE</th>
-                        <th>ITEM NAME</th>
-                        <th>QTY</th>
-                        <th>PRICE</th>
-                        <th>ITEM TOTAL</th>
-                        <th>TRANSACTION</th>
-                        <th>SHIP NAME</th>
-                        <th>ADDRESS</th>
-                        <th>FF</th>
-                        <th>TR</th>
-                        <th>SH</th>
-                    </tr>
+                    <?=$tblHeader?>
                 </thead>
                 <tfoot>
-                    <tr>
-                        <th>SHOP<br/>NAME</th>
-                        <th>ORDER ID</th>
-                        <th>SALE<br/>DATE</th>
-                        <th>ITEM NAME</th>
-                        <th>QTY</th>
-                        <th>PRICE</th>
-                        <th>ITEM TOTAL</th>
-                        <th>TRANSACTION</th>
-                        <th>SHIP NAME</th>
-                        <th>ADDRESS</th>
-                        <th>FF</th>
-                        <th>TR</th>
-                        <th>SH</th>
-                    </tr>
+                    <?=$tblHeader?>
                 </tfoot>
                 <tbody class="tbl-text-font-size">
+                    <?php $i = 1; ?>
                     <?php foreach ($results as $row): ?>
+                        <?php if ($i % 7 == 0): ?>
+                            <?=$tblHeader?>
+                        <?php endif; ?>
+                        <?php $i++?>
                         <tr>
                             <td><?=$row->label?><br/> <?=$row->shop_name?></td>
                             <td><?=$row->order_id?></td>
@@ -154,9 +146,27 @@
                             <td><?=$row->transaction_id?></td>
                             <td><?=$row->ship_name?></td>
                             <td><?=$row->ship_address1 . '<br/>' . $row->ship_city . ',' . $row->ship_state . ', ' . $row->ship_zipcode . ',<br/>' .$row->ship_country?></td>
-                            <td><?=$row->fulfilled_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?></td>
-                            <td><?=$row->tracking_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?></td>
-                            <td><?=$row->shipped_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?></td>
+                            <!-- <td><?//=$row->fulfilled_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?></td> -->
+                            <td class="flag-editting" style="width:35px">
+                                <label for="<?=$row->id?>-fulfilled_flg" class="control-label">
+                                <?=$row->fulfilled_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?>
+                                </label>
+                                <input type="text" value="<?=$row->fulfilled_flg?>" style="display:none;width:25px" />
+                            </td>
+                            <!-- <td><?//=$row->tracking_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?></td> -->
+                            <td class="flag-editting" style="width:35px">
+                                <label for="<?=$row->id?>-tracking_flg" class="control-label">
+                                <?=$row->tracking_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?>
+                                </label>
+                                <input type="text" value="<?=$row->tracking_flg?>" style="display:none;width:25px" />
+                            </td>
+                            <!-- <td><?//=$row->shipped_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?></td> -->
+                            <td class="flag-editting" style="width:35px">
+                                <label for="<?=$row->id?>-shipped_flg" class="control-label">
+                                <?=$row->shipped_flg ? '<span class="btn btn-success btn-circle btn-very-sm"><i class="fas fa-check"></i></span>' : '' ?>
+                                </label>
+                                <input type="text" value="<?=$row->shipped_flg?>" style="display:none;width:25px" />
+                            </td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

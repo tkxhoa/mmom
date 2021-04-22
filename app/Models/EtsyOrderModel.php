@@ -139,4 +139,13 @@ class EtsyOrderModel extends Model
 			}
 		}
     }
+
+	public function updateEtsyOrder($id, $data) {
+		// var_dump($id, $data);exit;
+        $db = \Config\Database::connect();
+        $builder = $db->table('tbl_etsy_order');
+        $builder->where('id', $id);
+        $builder->update($data);
+		return TRUE;
+    }
 }

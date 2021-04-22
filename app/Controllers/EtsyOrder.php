@@ -256,4 +256,21 @@ class EtsyOrder extends BaseController
                 fclose($file); 
                 exit; 
         }
+
+
+        public function update() {
+                $method = $this->request->getMethod();
+                if (strtoupper($method) == 'POST') {
+                        $id = $this->request->getVar("id");
+                        $field = $this->request->getVar("field");
+                        $value = $this->request->getVar("value");
+                       
+                        $data = array(
+                                $field => $value
+                        );
+
+                        $etsyOrderModel = new \App\Models\EtsyOrderModel();
+                        $etsyOrderModel->updateEtsyOrder($id, $data);
+                }
+        }
 }

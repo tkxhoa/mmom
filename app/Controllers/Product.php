@@ -4,15 +4,25 @@ namespace App\Controllers;
 
 class Product extends BaseController
 {
-        
+        protected $product_kinds = array(
+                'shirt',
+                'mug',
+                'face_mask'
+        );
 
         public function index()
         {
                 $params = [];
                 $code = $this->request->getVar('code');
+                $kind = $this->request->getVar('kind');
+                $shop_type = $this->request->getVar('shop_type');
                 
                 if ($code) {
                         $params[] = "code = '{$code}'";
+                }
+
+                if ($shop_type) {
+                        $params[] = "shop_type = '{$shop_type}'";
                 }
 
                 // Create a new class manually
@@ -20,10 +30,12 @@ class Product extends BaseController
                 $results = $productModel->getAll($params);
 
                 $pageName = "Making Product";
-                $showMenu = 'etsy';
-
+                $showMenu = 'product';
+                $product_kinds = $this->product_kinds;
+                
+            
                 return view("product", compact('pageName', 'results', 
-                        'code',
+                        'code', 'product_kinds', 'kind', 'shop_type',
                         'showMenu'
                 ));
         }
@@ -50,11 +62,17 @@ class Product extends BaseController
                         $title = $this->request->getVar("title");
                         $design_for = $this->request->getVar("design_for");
                         $kind = $this->request->getVar("kind");
+                        $shop_type = $this->request->getVar("shop_type");
 
                         $errors = [];
                         if (empty($title)) {
                                 
                                 $errors[] = 'Please input title!';
+                        }
+
+                        if (empty($kind)) {
+                                
+                                $errors[] = 'Please input kind!';
                         }
 
                         if (!empty($errors)) {
@@ -68,7 +86,8 @@ class Product extends BaseController
                                 'code' => $code,
                                 'title' => $title,
                                 'design_for' => $design_for,
-                                'kind' => $kind
+                                'kind' => $kind,
+                                'shop_type' => $shop_type
                         );
 
                         $productModel = new \App\Models\ProductModel();

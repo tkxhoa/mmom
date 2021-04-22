@@ -22,7 +22,7 @@ class PaypalModel extends MyBaseModel
 
         foreach ($arrEmails as $row) {
             //get blance
-            $sql = 'SELECT pp.email, pp.active_flg as active_flg, pp.type, pp.remark, IFNULL(ppt.balance,0) as balance FROM tbl_paypal pp 
+            $sql = 'SELECT pp.email, pp.sub_email, pp.active_flg as active_flg, pp.type, pp.remark, IFNULL(ppt.balance,0) as balance FROM tbl_paypal pp 
                 LEFT JOIN tbl_paypal_transaction ppt ON pp.email = ppt.paypal_email
                 WHERE pp.email = "' . $row->email . '"
                 ORDER BY id DESC LIMIT 1

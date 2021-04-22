@@ -14,7 +14,9 @@ class ProductModel extends MyBaseModel
             }
         }
         $db = \Config\Database::connect();
-        $query = $this->db->query('SELECT * FROM tbl_product WHERE deleted_flg = 0 ' . $sqlWhere . ' ORDER BY id DESC LIMIT 20');
+        $sql = 'SELECT * FROM tbl_product WHERE deleted_flg = 0 ' . $sqlWhere . ' ORDER BY id DESC LIMIT 20';
+        // echo $sql; exit;
+        $query = $this->db->query($sql);
         $results = $query->getResult();
         return $results;
     }

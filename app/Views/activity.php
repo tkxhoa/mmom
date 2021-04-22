@@ -37,7 +37,9 @@
                             <td><?=$row->created_date?></td>
                             <td><?=$row->result?></td>
                             <td><?=$row->result_date?></td>
-                            <td ><button type="button" style="font-size:11px;" class="btn btn-primary btn-font-size"><?=$row->type?></button></td>
+                            <td >
+                                <button type="button" style="font-size:11px;" class="btn <?=$row->type == 'etsy' ? 'btn-etsy' : 'btn-primary'?> btn-font-size"><?=$row->type?></button>
+                            </td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

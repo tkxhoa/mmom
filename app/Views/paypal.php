@@ -16,6 +16,18 @@
                         <div class="h5 mb-0 font-weight-bold font-italic text-gray-800">$<?=$row->holding_amount;?></div>
                         <div class="h5 mb-0 font-weight-light text-primary"><?=$row->type;?></div>
                         <div class="h5 mb-0 font-weight-light font-italic <?=$row->remark == 'VERIFIED' ? 'text-primary' : 'text-danger';?>"><?=$row->remark;?></div>
+                        <div class="h5 mb-0 font-weight-bold font-italic text-primary text-xs">
+                            <?php if (!empty($row->sub_email)):?>
+                                <?php 
+                                    $parts = preg_split("/[\n,]+/", $row->sub_email);   
+                                ?>
+                                <ul>
+                                <?php foreach ($parts as $li):?>
+                                    <li><?=$li?></li>
+                                <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
