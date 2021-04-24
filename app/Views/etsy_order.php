@@ -69,6 +69,7 @@
 <form class="user" method="get" action="<?=site_url('etsyorder') ?>" id="form_etsyorder_hidden">
     <input type="hidden" id="hidden_shop_name" name="shop_name" value="<?=$shopName?>">
     <input type="hidden" id="hidden_fulfilled_flg" name="fulfilled_flg" value="<?=$fulfilledFlg?>">
+    <input type="hidden" id="hidden_shipped_flg" name="shipped_flg" value="<?=$shippedFlg?>">
 </form>
 
 <form class="user" method="get" action="<?=site_url('export_csv_etsy_orders') ?>" id="form_hidden_export_csv_etsy_orders">
@@ -77,7 +78,7 @@
 
 
 <div style="width:30px; display:inline;">
-    <span>Shop:</span>
+    <span class="font-weight-bold">Shop:</span>
     <select id="list_etsy">
         <option value="" selected>---</option>
         <?php foreach ($listEtsy as $etsy): ?>
@@ -85,7 +86,7 @@
         <?php endforeach; ?>
     </select>
 
-    <span>Fulfilled:</span>
+    <span class="font-weight-bold">Fulfilled:</span>
     <select id="list_fulfilled_flg">
         <option value="" selected>---</option>
         <option value="0" <?=$fulfilledFlg === '0' ? 'selected' : ''?>>Not</option>
@@ -99,6 +100,10 @@
     <span class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="btn_export_csv">
         <i class="fas fa-download fa-sm text-white-50"></i> CSV to Fulfill
     </span>
+
+    <label for="shop_type_both" class="font-weight-bold">Shipped</label>
+    <input type="checkbox" id="shipped_flg_etsy" name="shipped_flg" value="1" <?=$shippedFlg == '1' ? 'checked' : ''?>>
+        
 </div>
 
 <div class="m-0 font-weight-bold text-primary">Total Result: <?=count($results)?></div>

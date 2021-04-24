@@ -80,6 +80,7 @@ class EtsyOrder extends BaseController
                 $params = [];
                 $shopName = $this->request->getVar('shop_name');
                 $fulfilledFlg = $this->request->getVar('fulfilled_flg');
+                $shippedFlg = $this->request->getVar('shipped_flg');
                 
                 if ($shopName) {
                         $params[] = "etsy_order.shop_name = '{$shopName}'";
@@ -87,6 +88,10 @@ class EtsyOrder extends BaseController
 
                 if ($fulfilledFlg === '0' || $fulfilledFlg === '1') {
                         $params[] = "etsy_order.fulfilled_flg = {$fulfilledFlg}";
+                }
+
+                if ($shippedFlg != '1') {//unchecked
+                        $params[] = "etsy_order.shipped_flg = 0";
                 }
 
                 // Create a new class manually
@@ -101,7 +106,7 @@ class EtsyOrder extends BaseController
                 $showMenu = 'etsy';
 
                 return view("etsy_order", compact('pageName', 'results', 
-                        'listEtsy', 'shopName', 'fulfilledFlg',
+                        'listEtsy', 'shopName', 'fulfilledFlg', 'shippedFlg',
                         'showMenu'
                 ));
         }

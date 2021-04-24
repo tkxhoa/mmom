@@ -180,9 +180,9 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="http://localhost/phpmyadmin/index.php?route=/&route=%2F&db=mmom" target="_blank">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    phpMyAdmin
                                 </a>
                                 <a class="dropdown-item" href="/activity">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>

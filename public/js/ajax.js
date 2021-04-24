@@ -35,6 +35,17 @@ $('#btn_pp_tran_search').on('click', function() {
     $('form#form_paypal_transaction_hidden').submit();
 });
 
+$('#shipped_flg_etsy').on('click', function() {
+    
+    if ($(this).is(':checked')) {
+        $('#hidden_shipped_flg').val(1);
+    } else {
+        $('#hidden_shipped_flg').val(0);
+    }
+    
+    $('form#form_etsyorder_hidden').submit();
+});
+
 
 $(function(){
     $(".wrapper1").scroll(function(){
