@@ -8,11 +8,11 @@
         <table class="my-table">
             <tr>
                 <td><span class="font-weight-bold">Product Title: </span></td>
-                <td><input type="text" style="width:555px" name="title" aria-describedby="emailHelp"></td>
+                <td><input type="text" style="width:555px" name="title" value="<?=$data['title'] ?? ''?>"></td>
             </tr>    
             <tr>
                 <td><span class="font-weight-bold">Design For: </span></td>
-                <td><input type="text" style="width:255px" name="design_for" aria-describedby="emailHelp"></td>
+                <td><input type="text" style="width:255px" name="design_for" value="<?=$data['design_for'] ?? ''?>"></td>
             </tr>  
             <tr>
                 <td><span class="font-weight-bold">Product kind: </span></td>
@@ -28,11 +28,11 @@
             <tr>
                 <td><span class="font-weight-bold">Shop type: </span></td>
                 <td>
-                    <input type="radio" id="shop_type_etsy" name="shop_type" value="etsy">
+                    <input type="radio" id="shop_type_etsy" name="shop_type" value="etsy" <?=$shop_type == 'etsy' ? 'checked' : ''?>>
                     <label for="shop_type_etsy">Etsy</label>
-                    <input type="radio" id="shop_type_merch" name="shop_type" value="merch">
+                    <input type="radio" id="shop_type_merch" name="shop_type" value="merch" <?=$shop_type == 'merch' ? 'checked' : ''?>>
                     <label for="shop_type_merch">Merch</label>
-                    <input type="radio" id="shop_type_both" name="shop_type" value="">
+                    <input type="radio" id="shop_type_both" name="shop_type" value="" <?=$shop_type == '' ? 'checked' : ''?>>
                     <label for="shop_type_both">All</label>
                 </td>
             </tr>

@@ -13,16 +13,26 @@ class Product extends BaseController
         public function index()
         {
                 $params = [];
-                $code = $this->request->getVar('code');
-                $kind = $this->request->getVar('kind');
-                $shop_type = $this->request->getVar('shop_type');
-                
-                if ($code) {
-                        $params[] = "code = '{$code}'";
-                }
 
-                if ($shop_type) {
-                        $params[] = "shop_type = '{$shop_type}'";
+                $session = session();
+                $data = $session->get('data');
+                $code = $kind = $shop_type = '';
+                // var_dump($data);
+                if (empty($data)) {//for searching form
+                        $code = $this->request->getVar('code');
+                        $kind = $this->request->getVar('kind');
+                        $shop_type = $this->request->getVar('shop_type');
+
+                        if ($code) {
+                                $params[] = "code = '{$code}'";
+                        }
+        
+                        if ($shop_type) {
+                                $params[] = "shop_type = '{$shop_type}'";
+                        }
+                } else {// for creating form
+                        $kind = $data['kind'];
+                        $shop_type = $data['shop_type'];
                 }
 
                 // Create a new class manually
@@ -36,6 +46,7 @@ class Product extends BaseController
             
                 return view("product", compact('pageName', 'results', 
                         'code', 'product_kinds', 'kind', 'shop_type',
+                        'data',
                         'showMenu'
                 ));
         }
@@ -75,20 +86,17 @@ class Product extends BaseController
                                 $errors[] = 'Please input kind!';
                         }
 
+                        $data = compact ('title', 'design_for', 'kind', 'shop_type');
+
                         if (!empty($errors)) {
                                 $session = session();
                                 $session->setFlashdata('errors', $errors);
+                                $session->setFlashdata('data', $data);
                                 return redirect()->route('product');
                         }
 
                         $code = 'M' . date('His') . $this->myFunc->generateRandomString(4, true);
-                        $data = array(
-                                'code' => $code,
-                                'title' => $title,
-                                'design_for' => $design_for,
-                                'kind' => $kind,
-                                'shop_type' => $shop_type
-                        );
+                        $data['code'] = $code;
 
                         $productModel = new \App\Models\ProductModel();
                         $productModel->insertProduct($data);

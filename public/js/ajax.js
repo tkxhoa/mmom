@@ -180,4 +180,31 @@ $(document).ready(function() {
         label.show();
         
     });
+
+    
+    if ($("#transfer_kind option:selected" ).text() == 'Transfer') {
+        $('#to_account').show();
+    } else if ($("#transfer_kind option:selected" ).text() == 'Withdraw') {
+        $('#from_account').show();
+    }
+});
+
+
+//Finance: amount
+$('.amount').on('change', function() {
+    var amount = $('#amount').val();
+    var rate = $('#rate').val();
+
+    if (amount != '' && rate != '') {
+        var rate = $('#vnd_amount').val(amount * rate);
+    }
+});
+
+$('#transfer_kind').on('change', function() {
+    $('.account2').hide();
+    if ($(this).val() == 'Transfer') {
+        $('#to_account').show();
+    } else if ($(this).val() == 'Withdraw') {
+        $('#from_account').show();
+    }
 });

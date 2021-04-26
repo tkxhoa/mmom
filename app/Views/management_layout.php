@@ -45,6 +45,12 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                <?php if (isset($_SESSION['messages'])): ?>
+                    <?php foreach($_SESSION['messages'] as $ms): ?>
+                        <div class="alert alert-success" role="alert"><?=$ms?></div>
+                    <?php endforeach; ?>
+                <?php endif;?>
+
                 <?php if (isset($_SESSION['errors'])): ?>
                     <?php foreach($_SESSION['errors'] as $error): ?>
                         <div class="alert alert-danger" role="alert"><?=$error?></div>
