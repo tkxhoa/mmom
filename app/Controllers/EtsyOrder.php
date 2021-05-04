@@ -97,6 +97,7 @@ class EtsyOrder extends BaseController
                 // Create a new class manually
                 $etsyOrderModel = new \App\Models\EtsyOrderModel();
                 $results = $etsyOrderModel->getAll($params);
+                // $this->myFunc->print($results);
 
                 $etsyModel = new \App\Models\EtsyModel();
                 $listEtsy = $etsyModel->getAllShopNames();

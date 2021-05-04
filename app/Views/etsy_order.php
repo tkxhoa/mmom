@@ -143,7 +143,7 @@
                         <tr>
                             <td><?=$row->label?><br/> <?=$row->shop_name?></td>
                             <td><?=$row->order_id?></td>
-                            <td><?=$row->sale_date?></td>
+                            <td><?=$row->sale_dmy?></td>
                             <td><?=$row->item_name?></td>
                             <td><?=$row->quantity?></td>
                             <td>$<?=$row->price?></td>

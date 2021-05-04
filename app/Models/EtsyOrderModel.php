@@ -13,7 +13,8 @@ class EtsyOrderModel extends Model
             $sqlConditions = 'AND ' . implode(" AND ", $conditions);
         }
         // echo "SELECT * FROM tbl_etsy_order WHERE deleted_flg = 0 AND canceled_flg = 0 {$sqlConditions} ORDER BY sale_date DESC";exit;
-		$sql = "SELECT etsy.label, etsy_order.* FROM tbl_etsy_order etsy_order" 
+		$sql = "SELECT etsy.label, etsy_order.*, DATE_FORMAT(STR_TO_DATE(etsy_order.sale_date, '%m/%d/%y'), '%d/%m/%Y') as sale_dmy
+			FROM tbl_etsy_order etsy_order" 
 			. ' INNER JOIN tbl_etsy etsy ON etsy_order.shop_name = etsy.shop_name'
 			. " WHERE etsy_order.deleted_flg = 0 AND etsy_order.canceled_flg = 0 {$sqlConditions} ORDER BY sale_date DESC";
 		// echo $sql;exit;

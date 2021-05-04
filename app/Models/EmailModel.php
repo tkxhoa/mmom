@@ -6,9 +6,15 @@ use CodeIgniter\Model;
 
 class EmailModel extends Model
 {
-    public function getAll() {
+    public function getAll($email) {
         $db = \Config\Database::connect();
-        $query = $this->db->query('SELECT * FROM tbl_email');
+        $sql = 'SELECT * FROM tbl_email';
+
+        if (!empty($email)) {
+            $sql .= ' WHERE email LIKE "%' . $email . '%" OR main_paypal_email LIKE "%' . $email . '%"';
+        }
+
+        $query = $this->db->query($sql);
         $results = $query->getResult();
         return $results;
     }

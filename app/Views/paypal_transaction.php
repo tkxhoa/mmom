@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th style="width:50%">IMPORT ORDERS</th>
-                    <th style="width:50%">MONEY IS AVAILABLE</th>
+                    <th style="width:50%"></th>
                 </tr>
             </thead>
             <tbody class="tbl-text-font-size">
@@ -32,12 +32,7 @@
                     </td>
 
                     <td>
-                        <form class="user" method="POST" action="<?=site_url('paypaltransaction/releaseMoney') ?>">
-                            <div class="form-group">
-                                <textarea id="transaction_id" name="transaction_id" rows="3" cols="85"></textarea>
-                            </div>
-                            <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Release Money</button>
-                        </form>  
+                        
                     </td>
                 </tr>    
             </tbody>
@@ -68,10 +63,6 @@
         <i class="fas fa-search fa-sm"></i>
     </button>        
     
-    
-    <span class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="btn_export_csv">
-        <i class="fas fa-download fa-sm text-white-50"></i> CSV to Fulfill
-    </span>
 </div>
 
 <div class="m-0 font-weight-bold text-primary">Total Result: <?=count($results)?></div>

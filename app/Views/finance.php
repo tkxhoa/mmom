@@ -2,6 +2,27 @@
 
 <?= $this->section('content') ?>
 
+<div class="row">
+    <?php foreach ($summary as $row): ?>
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="h6 font-weight-bold text-primary text-uppercase mb-1 text-underline"><?=$row->account?></div>
+                        <div class="h6 mb-0 font-weight-light text-warning"><?=$row->account_number?></div>
+                        <div class="h6 mb-0 font-weight-bold text-primary"><?=number_format($row->balance)?> VNĐ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <?php endforeach; ?>    
+    
+</div>
+
 <div class="card shadow mb-4">
     <div class="card-body">
     <form class="user" method="POST" action="<?=site_url('finance/create') ?>">

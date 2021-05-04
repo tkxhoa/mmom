@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xxs font-weight-bold text-primary text-uppercase mb-1 text-underline"><?=$row->paypal_email;?></div>
+                        <div class="text-xs font-weight-bold text-primary text-lowercase mb-1 text-underline"><?=$row->paypal_email;?></div>
                         <div class="h5 mb-0 font-weight-bold text-primary">$<?=round($row->balance, 2);?></div>
                         <div class="h5 mb-0 font-weight-bold font-italic text-gray-800">$<?=$row->holding_amount;?></div>
                         <div class="h5 mb-0 font-weight-light text-primary"><?=$row->type;?></div>

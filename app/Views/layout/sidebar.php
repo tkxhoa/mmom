@@ -21,14 +21,25 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <!-- Nav Item - Emails Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/finance">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Finance</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
             <!-- Nav Item - Paypal Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePaypal"
-                    aria-expanded="true" aria-controls="collapsePaypal">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
+                    aria-expanded="true" aria-controls="collapseProduct">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Product Manager</span>
                 </a>
-                <div id="collapsePaypal" class="collapse <?=isset($showMenu) && $showMenu == 'product' ? 'show' : ''?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseProduct" class="collapse <?=isset($showMenu) && $showMenu == 'product' ? 'show' : ''?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="product">Product List</a>
                         <a class="collapse-item" href="productsummary">Product Summary</a>

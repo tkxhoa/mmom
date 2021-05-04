@@ -14,7 +14,6 @@ class Finance extends BaseController
                 $params = [];
                 $session = session();
                 $data = $session->get('data');
-                var_dump($data);
                 $code = $kind = $shop_type = '';
                 if (empty($data)) {
                         $code = $this->request->getVar('code');
@@ -30,9 +29,14 @@ class Finance extends BaseController
                         }
                 }
 
-                // Create a new class manually
                 $financeModel = new \App\Models\FinanceModel();
+                //get summary
+                $summary = $financeModel->getSummary();
+                // $this->myFunc->print($summary);
+
+                // Create a new class manually
                 $results = $financeModel->getAll($params);
+                // $this->myFunc->print($results);
 
                 $pageName = "Finance";
                 $showMenu = 'finance';
@@ -41,6 +45,7 @@ class Finance extends BaseController
             
                 return view("finance", compact('pageName', 'results', 
                         'code', 'bank_list', 'kind', 'shop_type', 'data', 'kindList',
+                        'summary',
                         'showMenu'
                 ));
         }

@@ -3,6 +3,15 @@
 <?= $this->section('content') ?>
     
 
+<div style="width:30px; display:inline;">
+    <form class="user" method="GET" action="<?=site_url('email') ?>">
+        <span class="font-weight-bold">Email: </span><input type="text" style="width:200px" name="email" value="<?=$email ?? '' ?>">
+        <button class="btn btn-primary" type="submit" id="btn_search">
+            <i class="fas fa-search fa-sm"></i>
+        </button> 
+    </form> 
+</div>
+
 <div class="card shadow mb-4">
     
     <div class="card-body">
